@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Rooms</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="./style/rooms.css">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+</head>
+<body>
+
+	<!-- HEADER -->
+
+	<header class="container-fluid">
+		<nav class="navbar navbar-expand-lg navbar-dark py-0">
+			<div class="container-fluid">
+				<a class="navbar-brand py-0 me-0" href="#">
+					<img class="ms-lg-5 ms-md-4 ms-sm-2 ms-0" src="./img/logo.png">
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent" ata-aos="fade-up"
+				data-aos-duration="1000">
+				<ul class="navbar-nav ms-auto fs-5">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="facilities.html">Facilities</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Rooms</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact.html">Contact Us</a>
+					</li>
+					<div class="dropdown" id="dropdown">
+						<button class="logout-btn btn btn-primary dropdown-toggle"  type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="fa-solid fa-user" id="profile"><span class="profile">Profile</span></i>
+						</button>
+						<ul class="dropdown-menu w-25" aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" href="#" onclick="logout()" id="logout">Logout</a></li>
+							<!-- Add more dropdown items as needed -->
+						</ul>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+
+		<!-- LOGIN -->
+
+		<div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="btn-close btn-close-black" data-bs-dismiss="modal" aria-label="Close"></button>
+						<div class="myform bg-white">
+
+							<!-- LOGIN -->
+							<div class="container" id="myForm">
+								<input type="checkbox" id="check">
+								<div class="login form" >
+									<h1 class="login dark-blue text-center" >Login</h1>
+									<input type="text" placeholder="Enter your email" id="exampleInputEmail1" class="email-field">
+									<input type="password" placeholder="Enter your password" id="exampleInputPassword1" required>
+									<a href="#" onclick = "forgot()" id="forgotPasswd">Forgot password?</a>
+									<div id="forgot" class="success-message">If you have forgotten your password, please contact us at <a href="" class="tech">tech@gmail.com</a></div>
+
+									<button  onclick ="login()" type="button" class="mt-3 dark-blue" id="loginButton">LOGIN</button>
+
+									<!-- Всплышаюший сообщение -->
+									<div id="success" class="success-message">You have successfully logged into your profile! </div>
+									<div id="error" class="success-message">Login failed. Check your username and password or register. </div>
+									<!-- Всплышаюший сообщение -->
+									<div class="signup">
+										<span class="signup">Don't have an account?
+											<label for="check">Sign up</label>
+										</span>
+									</div>
+								</div>
+								<!-- END LOGIN -->
+
+								<!-- Registration form -->
+								<div class="registration form">
+									<h1 class="dark-blue text-center">Sign up</h1>       
+									<form action="#">
+										<div class="field email-field">
+											<div class="input-field">
+												<input type="email" placeholder="Enter your email" class="email" id="signupEmail"/>
+											</div>
+											<span class="error email-error">
+												<i class="bx bx-error-circle error-icon"></i>
+												<p class="error-text">Please enter a valid email</p>
+											</span>
+										</div>
+										<div class="field create-password">
+											<div class="input-field">
+												<input
+												type="password"
+												placeholder="Create password"
+												class="password"
+												id="signupPassword"
+												/>
+												<i class="bx bx-hide show-hide"></i>
+											</div>
+											<span class="error password-error">
+												<i class="bx bx-error-circle error-icon"></i>
+												<p class="error-text">
+													Please enter atleast 8 charatcer with number, symbol, small and
+													capital letter.
+												</p>
+											</span>
+										</div>
+										<div class="field confirm-password">
+											<div class="input-field">
+												<input
+												type="password"
+												placeholder="Confirm password"
+												class="cPassword"
+												/>
+												<i class="bx bx-hide show-hide"></i>
+											</div>
+											<span class="error cPassword-error">
+												<i class="bx bx-error-circle error-icon"></i>
+												<p class="error-text">Password don't match</p>
+											</span>
+										</div>
+										<div class="input-field button">
+											<input  onclick="register()" type="submit" value="Submit Now" />
+											<div id="successMessage" class="success-message"> </div>
+											<div id="fix" class="success-message">Please fix the validation errors.</div>
+											<div id="errorMessage" class="success-message">User with such email already exists.</div>
+										</div>
+										<div class="signup"> 
+											<span class="signup dark-blue">Already have an account?
+												<label for="check">Login</label>
+											</span>
+										</div>
+									</form>
+								</div>
+
+								<!-- REGISTRATION END -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="ms-lg-5 ms-md-4 ms-sm-2 ms-0 mt-5 pt-5 mb-5" data-aos="fade-right"
+	data-aos-offset="300"
+	data-aos-easing="ease-in-sine">
+	<h1 class="display-6 m-0">Welcome To</h1><h1 class="AGP display-1 m-0" id="box1">LUXURY</h1><h1 class="AGP m-0 display-2" id="hotel2">HOTELS</h1>
+	<p>Book your stay and enjoy Luxury<br>redefined at the most affordable rates</p>
+</div>
+<div class="d-flex flex-column align-items-center">
+	<a class="btn d-flex align-items-center text-center py-0" href="#" role="button" id ="book_now" data-bs-toggle="modal" data-bs-target="#ModalForm" data-aos="fade-down"
+	data-aos-easing="linear">
+	<img class="me-2" src="img/Group 37.png" height="28px" width="28px">
+
+	<p class="fw-bold mt-3">Book Now</p>
+</a>
+<div class="scroll d-flex flex-column align-items-center mb-4" data-aos="fade-up"  data-aos-easing="linear">
+	<h5 class="fw-bold mt-5">Scroll</h5>
+	<a href="#content">
+		<img src="img/Subtraction 2.png" alt="" width="40px">
+	</a>
+</div>
+</div>
+</div>
+</header>
+
+<!-- MAIN -->
+
+<main class="container-fluid overflow-hidden" id="content">
+
+	<!-- TOASTS -->
+
+	<div class="position-fixed bottom-0 end-0 p-3 dark-blue" style="z-index: 2000">
+		<div class="toast">
+			<div class="toast-header h5">
+				Room added!
+			</div>
+		</div>
+	</div>
+
+	<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 2000">
+		<div class="toast bg-danger">
+			<div class="toast-header bg-danger text-white h5">
+				Please Log In for that action!
+			</div>
+		</div>
+	</div>
+
+	<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 2000">
+		<div class="toast bg-danger">
+			<div class="toast-header bg-danger text-white h5">
+				Your cart should not be empty!
+			</div>
+		</div>
+	</div>
+
+	<div class="position-fixed bottom-0 end-0 p-3 dark-blue" style="z-index: 2000">
+		<div class="toast">
+			<div class="toast-header h5">
+				Thank you for choosing us!
+			</div>
+			<div class="h5 text-center">Total cost is: <span id="total_cost_toast"></span>$</div>
+		</div>
+	</div>
+
+	<!-- CART -->
+
+	<button class="btn rounded-circle position-fixed top-50 end-0 translate-middle-y" id="cart-btn" onclick="cartFunction()">
+		<img src="./img/cart.png">
+	</button>
+
+	<div class="offcanvas offcanvas-end dark-blue" tabindex="-1" aria-labelledby="offcanvasRightLabel">
+		<div class="offcanvas-header">
+			<h3 class="fw-bold" id="offcanvasRightLabel">Reserved Rooms</h3>
+			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+    		<div class="row row-cols-1 gy-2">
+    			<div class="col d-flex justify-content-around align-items-center info-cart fw-bold">
+    				<span>Name</span><span>Price</span><span>Amount</span>
+    			</div>
+    			<div class="col text-center bg-warning h2" id="empty-info">Cart is empty!</div>
+    			<div class="col d-flex dark-blue-border-cart justify-content-around align-items-center itemHolder d-none">
+    				<img src="./img/single.png">
+    				<p class="pt-3 ps-3">SINGLE ROOM</p>
+    				<p class="pt-3 ps-4">0</p>
+    				<input type="number" value="0" min="0" onchange="setNewPrice(0)">
+    			</div>
+    			<div class="col d-flex dark-blue-border-cart justify-content-around align-items-center itemHolder d-none">
+    				<img src="./img/double.png">
+    				<p class="pt-3 ps-3">DOUBLE ROOM</p>
+    				<p class="pt-3 ps-4">0</p>
+    				<input type="number" value="0" min="0" onchange="setNewPrice(1)">
+    			</div>
+    			<div class="col d-flex dark-blue-border-cart justify-content-around align-items-center itemHolder d-none">
+    				<img src="./img/twin.png">
+    				<p class="pt-3 ps-3">TWIN ROOM</p>
+    				<p class="pt-3 ps-4">0</p>
+    				<input type="number" value="0" min="0" onchange="setNewPrice(2)">
+    			</div>
+    			<div class="col d-flex dark-blue-border-cart justify-content-around align-items-center itemHolder d-none">
+    				<img src="./img/suite.jpg">
+    				<p class="pt-3 ps-3">SUITE ROOM</p>
+    				<p class="pt-3 ps-4">0</p>
+    				<input type="number" value="0" min="0" onchange="setNewPrice(3)">
+    			</div>
+    			<div class="col d-flex dark-blue-border-cart justify-content-around align-items-center itemHolder d-none">
+    				<img src="./img/executive.jpg">
+    				<p class="pt-3 ps-3">EXECUTIVE ROOM</p>
+    				<p class="pt-3 ps-4">0</p>
+    				<input type="number" value="0" min="0" onchange="setNewPrice(4)">
+    			</div>
+    			<div class="col d-flex dark-blue-border-cart justify-content-around align-items-center itemHolder d-none">
+    				<img src="./img/family.jpg">
+    				<p class="pt-3 ps-3">FAMILY ROOM</p>
+    				<p class="pt-3 ps-4">0</p>
+    				<input type="number" value="0" min="0" onchange="setNewPrice(5)">
+    			</div>
+    			<div class="col d-flex dark-blue-border-cart justify-content-around align-items-center itemHolder d-none">
+    				<img src="./img/deluxe.jpg">
+    				<p class="pt-3 ps-3">DELUXE ROOM</p>
+    				<p class="pt-3 ps-4">0</p>
+    				<input type="number" value="0" min="0" onchange="setNewPrice(6)">
+    			</div>
+    			<div class="col d-flex dark-blue-border-cart justify-content-around align-items-center itemHolder d-none">
+    				<img src="./img/accessible.jpg">
+    				<p class="pt-3 ps-3">ACCESSIBLE ROOM</p>
+    				<p class="pt-3 ps-4">0</p>
+    				<input type="number" value="0" min="0" onchange="setNewPrice(7)">
+    			</div>
+    			<div class="col d-flex justify-content-around align-items-center">
+    				<span class="fw-bold">Total Cost:</span><span><span id="total_cost">0</span>$/night</span>
+    				<button class="btn" onclick="submitAction()">Submit</button>
+    			</div>
+    		</div>
+  		</div>
+	</div>
+
+	<!-- INFO MODAL -->
+
+	<div class="modal fade" id="infoModal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title dark-blue"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-labes="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p class="dark-blue"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="text-center dark-blue mt-4">
+		<h1 class="AGP" data-aos-easing="ease-in-sine" data-aos-duration="1000">ROOMS AND RATES</h1>
+		<p  data-aos-easing="ease-in-sine" data-aos-duration="1500">Each of our bright, light-flooded rooms come with everything you could possibly need for a comfortable stay. And yes, comfort isn’t our only objective, we also value good design, sleek contemporary furnishing complemented by the rich tones of nature’s palette as visible from our rooms’ sea-view windows and terraces. </p>
+	</div>
+
+	<!-- FILTERING -->
+
+	<div class="row row-cols-1 row-cols-xxl-2 g-3 mt-3"  data-aos="fade-down" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+		<div class="col dark-blue" id="myBtnContainer">
+			<span class="align-middle fs-5 fw-bold">Filter parameters:</span>
+			<button class="btn mt-1 mx-1 btn-selected" onclick="filterSelection('all')"> Show all </button>
+			<button class="btn mt-1 mx-1" onclick="filterSelection('1-p')"> 1 person </button>
+			<button class="btn mt-1 mx-1" onclick="filterSelection('2-p')"> 2 people </button>
+			<button class="btn mt-1 mx-1" onclick="filterSelection('3-p')"> 3 people </button>
+			<button class="btn mt-1 ms-1" onclick="filterSelection('4-p')"> 4 people </button>
+		</div>
+		<div class="col d-flex dark-blue align-items-center pt-1">
+			<span class="fs-5 fw-bold">Filter by price:</span>
+			<span class="ms-2 me-1">Min:</span>
+			<input class="mx-1" type="text" value="100" id="min">
+			<span class="mx-1"> - </span>
+			<span class="mx-1">Max:</span>
+			<input class="mx-1" type="text" value="200" id="max">
+			<button class="btn ms-1" onclick="filterPrice()">Apply</button>
+		</div>
+	</div>
+
+	<!-- ROOMS -->
+
+	<div class="row mt-1 g-5 row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 overflow-hidden">
+		<div class="col filterDiv 1-p">
+			<div class="dark-blue-border">
+				<img class="img-fluid" src="./img/single.png">
+				<div class="dark-blue-back text-center fw-bold py-1">SINGLE ROOM</div>
+				<div class="d-flex justify-content-around py-4 align-items-center">
+					<button type="button" class="btn rounded-circle fw-bold infoBtn">+</button>
+					<div class="dark-blue fw-bold">DETAILS</div>
+					<button type="button" class="btn fw-bold reserveBtn" onclick="addToCartActions(0)">$100 Avg/night</button>
+				</div>
+			</div>
+		</div>
+		<div class="col filterDiv 2-p">
+			<div class="dark-blue-border">
+				<img class="img-fluid" src="./img/double.png">
+				<div class="dark-blue-back text-center fw-bold py-1">DOUBLE ROOM</div>
+				<div class="d-flex justify-content-around py-4 align-items-center">
+					<button type="button" class="btn rounded-circle fw-bold infoBtn">+</button>
+					<div class="dark-blue fw-bold">DETAILS</div>
+					<button type="button" class="btn fw-bold reserveBtn" onclick="addToCartActions(1)">$120 Avg/night</button>
+				</div>
+			</div>
+		</div>
+		<div class="col filterDiv 2-p">
+			<div class="dark-blue-border">
+				<img class="img-fluid" src="./img/twin.png">
+				<div class="dark-blue-back text-center fw-bold py-1">TWIN ROOM</div>
+				<div class="d-flex justify-content-around py-4 align-items-center">
+					<button type="button" class="btn rounded-circle fw-bold infoBtn">+</button>
+					<div class="dark-blue fw-bold">DETAILS</div>
+					<button type="button" class="btn fw-bold reserveBtn" onclick="addToCartActions(2)">$120 Avg/night</button>
+				</div>
+			</div>
+		</div>
+		<div class="col filterDiv 2-p">
+			<div class="dark-blue-border">
+				<img class="img-fluid" src="./img/suite.jpg">
+				<div class="dark-blue-back text-center fw-bold py-1">SUITE ROOM</div>
+				<div class="d-flex justify-content-around py-4 align-items-center">
+					<button type="button" class="btn rounded-circle fw-bold infoBtn">+</button>
+					<div class="dark-blue fw-bold">DETAILS</div>
+					<button type="button" class="btn fw-bold reserveBtn" onclick="addToCartActions(3)">$200 Avg/night</button>
+				</div>
+			</div>
+		</div>
+		<div class="col filterDiv 1-p 2-p">
+			<div class="dark-blue-border">
+				<img class="img-fluid" src="./img/executive.jpg">
+				<div class="dark-blue-back text-center fw-bold py-1">EXECUTIVE ROOM</div>
+				<div class="d-flex justify-content-around py-4 align-items-center">
+					<button type="button" class="btn rounded-circle fw-bold infoBtn">+</button>
+					<div class="dark-blue fw-bold">DETAILS</div>
+					<button type="button" class="btn fw-bold reserveBtn" onclick="addToCartActions(4)">$150 Avg/night</button>
+				</div>
+			</div>
+		</div>
+		<div class="col filterDiv 3-p 4-p">
+			<div class="dark-blue-border">
+				<img class="img-fluid" src="./img/family.jpg">
+				<div class="dark-blue-back text-center fw-bold py-1">FAMILY ROOM</div>
+				<div class="d-flex justify-content-around py-4 align-items-center">
+					<button type="button" class="btn rounded-circle fw-bold infoBtn">+</button>
+					<div class="dark-blue fw-bold">DETAILS</div>
+					<button type="button" class="btn fw-bold reserveBtn" onclick="addToCartActions(5)">$180 Avg/night</button>
+				</div>
+			</div>
+		</div>
+		<div class="col filterDiv 1-p 2-p 3-p">
+			<div class="dark-blue-border">
+				<img class="img-fluid" src="./img/deluxe.jpg">
+				<div class="dark-blue-back text-center fw-bold py-1">DELUXE ROOM</div>
+				<div class="d-flex justify-content-around py-4 align-items-center">
+					<button type="button" class="btn rounded-circle fw-bold infoBtn">+</button>
+					<div class="dark-blue fw-bold">DETAILS</div>
+					<button type="button" class="btn fw-bold reserveBtn" onclick="addToCartActions(6)">$130 Avg/night</button>
+				</div>
+			</div>
+		</div>
+		<div class="col filterDiv 1-p 2-p">
+			<div class="dark-blue-border">
+				<img class="img-fluid" src="./img/accessible.jpg">
+				<div class="dark-blue-back text-center fw-bold py-1">ACCESSIBLE ROOM</div>
+				<div class="d-flex justify-content-around py-4 align-items-center">
+					<button type="button" class="btn rounded-circle fw-bold infoBtn">+</button>
+					<div class="dark-blue fw-bold">DETAILS</div>
+					<button type="button" class="btn fw-bold reserveBtn" onclick="addToCartActions(7)">$110 Avg/night</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+<!-- FOOTER -->
+
+<footer class="container-fluid mt-4">
+	<div class="row">
+		<div class="col-lg-3 col-sm-6">
+			<div class="single-box">
+				<h1 class="AGP">LUXURY<br>HOTELS</h1>
+				<h3 class="fs-6">497 Evergreen Rd. Roseville, CA 95673 +44 345 678 903 luxury_hotels@gmail.com</h3>
+			</div>
+		</div>
+		<div class="col-lg-3 col-sm-6">
+			<div class="single-box">
+				<h2>Service</h2>
+				<ul>
+					<li><a href="#">About Us</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Terms & Conditions</a></li>
+				</ul>
+			</div>                    
+		</div>
+		<div class="col-lg-3 col-sm-6">
+			<div class="single-box">
+				<h2>Media</h2>
+				<ul>
+					<li><img src="img/Path 38.png" alt=""><span>Facebook</span></li>
+					<li><img src="img/Path 39.png" alt=""><span>Twitter</span></li>
+					<li><img src="img/Path 40.png" alt=""><span>Instagram</span></li>
+				</ul>
+			</div>                    
+		</div>
+		<div class="col-lg-3 col-sm-6">
+			<div class="single-box">
+				<h2>Newsletter</h2>
+				<p>We welcome you to your hotel, now we have the season, there are most discounts for foreigners and guests, Come do not regret it</p>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Enter your Email ..." aria-describedby="basic-addon2">
+					<button class="input-group-text" id="basic-addon2">Send<i class="fa fa-long-arrow-right"></i></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<script src="js/valid.js"></script>
+<script src="js/validation.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();       /* НАЗЫВАЕТСЯ AOS JS напишешь в гугл там будет */
+</script>
+<!-- <script src="js/counterBasket.js"></script> -->
+<script src="js/rooms.js"></script>
+<script src="./js/welcome_sound.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>

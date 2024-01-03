@@ -1,0 +1,435 @@
+/* В самом внизу стили на login etc  */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&family=Montserrat:wght@400;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', serif;
+    font-weight: 400px;
+    color: white;
+}
+
+.AGP {
+    font-family: 'EB Garamond', serif;
+    font-weight: 700px;
+}
+
+.dark-blue {
+    color: #14274A;
+}
+
+.dark-blue-back {
+    background: #14274A;
+}
+
+/* HEADER */
+
+header{
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(../img/Rixos-Marina-Abu-Dhabi.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar ul li{
+    margin: 0 10px;
+    position: relative;
+}
+
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.btn{
+    background-color: #E0B973;
+    color: white;
+}
+
+/* Welcome */
+.wel_txt{
+    padding-top: 150px;
+}
+.lux_txt{
+    color: #FFF;
+    font-family: Adobe Garamond Pro;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 10.78px;
+    font-size: 80px;
+    letter-spacing: 10.78px;
+}
+.hot_txt{
+    color: #FFF;
+    font-family: Adobe Garamond Pro;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 24px;
+    
+}
+
+
+/*  CONTENT */
+.content{
+    margin-top: 100px;
+}
+.content p {
+    color: #14274A;
+    font-family: Montserrat;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* CARD */
+
+.products {
+	padding: 5% 0 0;
+}
+.card {
+    border: none;
+	box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+.card-body {
+	color: #fff;
+	background: #2a2f40;
+}
+.card-title {
+	font-size: 30px;
+	font-weight: 700;
+    transition: all .5s ease-in-out;
+}
+.btn-group .btn {
+	background: #fe6d38;
+	color: #fff;
+	font-size: 18px;
+	margin-right: 5px;
+	padding: 10px 20px;
+	font-weight: 700;
+    transition: all .6s ease-in;
+}
+
+.card:hover .card-title{
+    letter-spacing: 5px;
+    font-weight: 300;
+}
+.btn:hover {
+	background: #fff;
+	color: #262626;
+}
+
+/* FOOTER */
+
+footer {
+    background: #14274A;
+    padding-top: 50px;
+}
+
+.single-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.single-box span{
+    margin-left: 15px;
+}
+.single-box ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+#basic-addon2 {
+    background-color: #E0B973;
+    color: white;
+}
+.socials i {
+    margin-right: 15px;
+}
+
+
+/* MODAL CSS */
+#ModalForm .modal-content {
+  width: 80%;
+  margin: 0 auto;
+}
+#ModalForm .modal-body {
+  padding: 0;
+}
+#ModalForm .btn-close {
+  position: absolute;
+  right: 0;
+  padding: 1em;
+}
+#ModalForm h1 {
+  font-size: 2.3em;
+  font-weight: bold;
+}
+#ModalForm .myform {
+  padding: 2em;
+  max-width: 100%;
+  color: #fff;
+  box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+}
+@media (max-width: 576px) {
+  .myform {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+#ModalForm .form-control:focus {
+  box-shadow: inset 0 -1px 0 black;
+}
+#ModalForm .form-control {
+  background-color: inherit;
+  color: black;
+  padding-left: 0;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+}
+#ModalForm .myform .btn1 {
+  border: none;
+  width: 100%;
+  font-weight: 800;
+  background-color: #E0B973;
+  border-radius: 15px;
+  padding: 0.5em 0;
+}
+
+
+#ModalForm .myform .btn1:hover {
+  background-color: #E0B973;
+  color: #fff;
+  border-color: black;
+
+}
+#ModalForm p .wtf{
+  text-align: center;
+  padding-top: 2em;
+  color: grey;
+}
+#ModalForm p a .wtf2{
+
+  text-decoration: none;
+}
+#ModalForm p a .wtf2:hover {
+  color: black;
+}
+
+
+
+/* MOUSEOVER */
+
+#box{
+  color: red;
+}
+
+
+/* LOGIN AND SIGH UP STYLE */
+.container .registration{
+  display: none;
+}
+#check:checked ~ .registration{
+  display: block;
+}
+#check:checked ~ .login{
+  display: none;
+}
+#check{
+  display: none;
+}
+.container .form{
+  padding: 2rem;
+}
+.form header{
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+ .form input{
+   height: 60px;
+   width: 100%;
+   padding: 0 15px;
+   font-size: 17px;
+   margin-bottom: 1.3rem;
+   border: 1px solid #ddd;
+   border-radius: 6px;
+   outline: none;
+ }
+
+ .form button{
+  height: 60px;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 17px;
+  margin-bottom: 1.3rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+ }
+ .form input:focus{
+   box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+ }
+.form a{
+  font-size: 16px;
+  color: #009579;
+  text-decoration: none;
+}
+.form a:hover{
+  text-decoration: underline;
+}
+.form button{
+  color: #fff;
+  background: #009579;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 1.7rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.form button:hover{
+  background: #006653;
+}
+.signup{
+  color: black !important;
+  font-size: 17px;
+  font-weight: 700 !important;
+  text-align: center;
+}
+.signup label{
+  color: #009579;
+  cursor: pointer;
+}
+.signup label:hover{
+  text-decoration: underline;
+}
+
+
+form .field {
+  margin-bottom: 20px;
+}
+form .input-field {
+  position: relative;
+  height: 55px;
+  width: 100%;
+}
+.input-field input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  padding: 0 15px;
+  border: 1px solid #d1d1d1;
+}
+.invalid input {
+  border-color: #d93025;
+}
+.input-field .show-hide {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #919191;
+  cursor: pointer;
+  padding: 3px;
+}
+.field .error {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  color: #d93025;
+  font-size: 13px;
+  display: none;
+}
+.invalid .error {
+  display: flex;
+}
+.error .error-icon {
+  margin-right: 6px;
+  font-size: 15px;
+}
+.create-password .error {
+  align-items: flex-start;
+}
+.create-password .error-icon {
+  margin-top: 4px;
+}
+.button {
+  margin-bottom:30px;
+}
+.button input {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #009579/* СЮДА */;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+ /* Стилизация анимированного сообщения */
+ .success-message {
+  display: none;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fadeOut 3s ease-in-out;
+}
+
+/* Анимация исчезновения сообщения */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+button .forgot{
+  background: white;
+  
+}
+
+.profile{
+  
+  letter-spacing: 5px;
+}
+.dropdown{
+  display: none;
+}
+  
+
+.fa-solid{
+  display: none;
+  padding-top: 10px;
+}
+
+
+.success-message a{
+  text-decoration: none;
+  color: white;
+  font-weight: 800  ;
+}
